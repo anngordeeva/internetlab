@@ -1,0 +1,41 @@
+.facts {
+  padding: 17px 0;
+  background-color: $extralight-gray;
+  @include screen(mobile-2x) {
+    padding: 20px 0;
+  }
+  @include screen(tablet) {
+    padding: 20px 0 29px;
+  }
+  @include screen(laptop) {
+    padding: 68px 0;
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    @include screen(laptop) {
+      display: grid;
+      grid-template-columns: repeat(2, 592px);
+      gap: 37px 32px;
+    }
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    @include screen(tablet) {
+      gap: 46px;
+    }
+    @include screen(laptop) {
+      gap: 17px;
+    }
+    h4 {
+      @include body18-bold;
+    }
+    p {
+      @include body16;
+      line-height: 28px;
+    }
+  }
+}

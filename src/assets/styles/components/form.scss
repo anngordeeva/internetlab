@@ -1,0 +1,170 @@
+.form {
+  padding: 58px 0;
+  @include screen(desktop) {
+    padding: 80px 0;
+  }
+  &__title {
+    margin-bottom: 30px;
+    text-align: center;
+    @include headline4;
+    @include screen(tablet) {
+      margin-bottom: 32px;
+      @include headline2;
+    }
+    @include screen(desktop) {
+      margin-bottom: 44px;
+    }
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 17px;
+    @include screen(tablet) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px 24px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+  }
+  &__item {
+    position: relative;
+    width: 100%;
+    &-name,
+    &-phone {
+      &.error {
+        & > .form__error {
+          display: block;
+        }
+      }
+    }
+    &-name,
+    &-phone {
+      &.success {
+        & > .form__success {
+          display: block;
+        }
+      }
+    }
+  }
+  &__error {
+    display: none;
+    span {
+      position: absolute;
+      bottom: -16px;
+      color: $dangerous;
+      @include body12;
+    }
+    img {
+      position: absolute;
+      top: 22px;
+      right: 16px;
+    }
+  }
+  &__success {
+    display: none;
+    img {
+      position: absolute;
+      top: 22px;
+      right: 16px;
+    }
+  }
+  &__label {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    color: $dark-gray;
+    transition: top $transition-default, color $transition-default;
+    @include body18;
+  }
+  &__input {
+    width: 100%;
+    padding: 16px;
+    background-color: $extralight-gray;
+    border: 2px solid $extralight-gray;
+    border-radius: 2px;
+    transition: border-color $transition-default, background-color $transition-default;
+    @include body18;
+    &::placeholder {
+      opacity: 0;
+    }
+    &:focus {
+      background-color: transparent;
+      border-color: $mid-gray;
+      padding: 28px 16px 4px;
+    }
+    &:not(:placeholder-shown) {
+      background-color: transparent;
+      padding: 28px 16px 4px;
+    }
+    &:focus + .form__label,
+    &:not(:placeholder-shown) + .form__label {
+      top: 8px;
+      color: $gray;
+      @include body14;
+    }
+    &.error {
+      border-color: $dangerous;
+    }
+  }
+  &__checkbox {
+    position: relative;
+    input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+      &:checked ~ .form__checkmark {
+        background-color: $primary;
+        border-color: $primary;
+        &:after {
+          display: block;
+        }
+      }
+    }
+    small {
+      padding-left: 40px;
+      @include body16;
+    }
+  }
+  &__checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    border: 2px solid $mid-gray;
+    border-radius: 4px;
+    background-color: transparent;
+    transition: border-color $transition-default, background-color $transition-default;
+    &:after {
+      content: '';
+      position: absolute;
+      display: none;
+      background-image: url(/assets/images/check-icon.svg);
+      width: 16px;
+      height: 12px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  &__button {
+    padding: 20px;
+    background-color: $primary;
+    border-radius: 4px;
+    color: $white;
+    @include headline5;
+    @include screen(tablet) {
+      padding: 18px;
+    }
+    @include screen(laptop) {
+      transition: background-color $transition-default;
+      &:hover {
+        background-color: $primary-hover;
+      }
+    }
+  }
+}

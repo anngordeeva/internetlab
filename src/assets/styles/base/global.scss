@@ -1,0 +1,65 @@
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+}
+
+textarea,
+input,
+button,
+select,
+a {
+  outline: none;
+  border-radius: 0;
+
+  font-weight: 400;
+  font-family: 'Graphik LCG';
+  touch-action: manipulation;
+}
+
+html,
+body {
+  height: 100%;
+
+  font-family: 'Graphik LCG';
+  color: $black;
+}
+
+.render {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: $white;
+}
+
+.wrapper {
+  margin: 0 auto;
+  padding: 0 #{$container-padding};
+  max-width: calc(#{$mobile-wrapper} + #{$container-padding * 2});
+  @include screen(mobile-2x) {
+    max-width: calc(#{$screen-mobile-2x} + #{$container-padding * 2});
+  }
+  @include screen(tablet) {
+    max-width: calc(#{727px} + #{$container-padding * 2});
+  }
+  @include screen(laptop) {
+    max-width: calc(#{1200px} + #{$container-padding * 2});
+  }
+  @include screen(desktop) {
+    max-width: calc(#{1216px} + #{$container-padding * 2});
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}

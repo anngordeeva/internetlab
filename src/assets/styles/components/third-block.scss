@@ -1,0 +1,65 @@
+.third-block {
+  padding-bottom: 56px;
+  @include screen(tablet) {
+    padding-bottom: 40px;
+  }
+  @include screen(desktop) {
+    padding-bottom: 80px;
+  }
+  &__wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 26px;
+    @include screen(mobile-2x) {
+      gap: 0;
+    }
+    @include screen(tablet) {
+      flex-direction: row;
+      gap: 26px;
+      img {
+        gap: 24px;
+        max-width: 351px;
+      }
+    }
+    @include screen(laptop) {
+      display: grid;
+      grid-template-columns: repeat(2, 592px);
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      img {
+        max-width: 592px;
+      }
+    }
+  }
+  &__text {
+    h3 {
+      margin-bottom: 27px;
+      text-align: center;
+      @include headline5;
+      @include screen(mobile-2x) {
+        margin-bottom: 3px;
+      }
+      @include screen(tablet) {
+        margin-bottom: 15px;
+        text-align: left;
+      }
+      @include screen(laptop) {
+        margin-bottom: 18px;
+        @include headline3;
+      }
+    }
+    p {
+      text-align: center;
+      color: $dark-gray;
+      @include body16;
+      line-height: 28px;
+      &:not(:last-of-type) {
+        margin-bottom: 27px;
+      }
+      @include screen(tablet) {
+        text-align: left;
+      }
+    }
+  }
+}

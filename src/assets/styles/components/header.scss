@@ -1,0 +1,170 @@
+.header {
+  position: absolute;
+  width: 100vw;
+  top: 0;
+  background-color: transparent;
+  transition: background-color $transition-default;
+  &.active {
+    background-color: $white;
+  }
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 0;
+  }
+  &__logo {
+     svg path {
+      transition: fill $transition-default;
+     }
+    &.active {
+      svg path {
+        fill: $black;
+      }
+    }
+  }
+  &__nav {
+    &.active {
+      transform: translateX(0);
+    }
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 80px;
+    right: 0;
+    padding: 0 16px;
+    width: 100vw;
+    height: 100vh;
+    transform: translateX(100%);
+    transition: all ease .5s;
+    overflow: scroll;
+    z-index: 10;
+    background-color: $white;
+    @include screen(laptop) {
+      position: static;
+      width: auto;
+      overflow: hidden;
+      height: auto;
+      padding: 0;
+      transform: unset;
+    }
+    ul {
+      display: flex;
+      flex-direction: column;
+      @include screen(laptop) {
+        flex-direction: row;
+        gap: 24px;
+      }
+      li {
+        padding: 16px 0;
+        border-top: 1px solid $light-gray;
+        color: $gray;
+        @include body18;
+        &:last-child {
+          border-bottom: 1px solid $light-gray;
+        }
+        @include screen(laptop) {
+          position: relative;
+          display: flex;
+          padding: 0;
+          border-top: none;
+          color: $white;
+          cursor: pointer;
+          transition: color $transition-default;
+          @include body16;
+          &::after {
+            content: '';
+            position: absolute;
+            display: block;
+            background-color: $white;
+            width: 100%;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity $transition-default;
+          }
+          &:hover,
+          &:active {
+            &::after {
+              opacity: 1;;
+            }
+          }
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+        a {
+          display: flex;
+          justify-content: space-between;
+          &::after {
+            content: '';
+            display: block;
+            background-image: url(/assets/images/arrow-right.svg);
+            background-repeat: no-repeat;
+            width: 24px;
+            height: 24px;
+            @include screen(laptop) {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+  &__button {
+    &:hover {
+      color: $white;
+      border-color: $white;
+    }
+    &:active {
+      border-color: transparent;
+    }
+  }
+  &__burger {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    width: 62px;
+    height: 12px;
+    &::before {
+      content: "";
+      position: absolute;
+      display: block;
+      top: 0px;
+      width: 22px;
+      height: 2px;
+      border-radius: 1px;
+      background-color: $white;
+      transition: all $transition-default;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      top: 10px;
+      width: 22px;
+      height: 2px;
+      border-radius: 1px;
+      background-color: $white;
+      transition: all $transition-default;
+    }
+    &.active {
+      top: 8px;
+      &::before {
+        transform: rotate(-45deg);
+        background-color: $black;
+      }
+      &::after {
+        top: auto;
+        transform: rotate(45deg);
+        background-color: $black;
+      }
+    }
+    @include screen(laptop) {
+      display: none;
+    }
+  }
+}

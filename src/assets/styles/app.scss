@@ -1,0 +1,28 @@
+@import "./utils/reset";
+
+/*
+  Базовые стили и утилиты
+*/
+@import "./base/variables";
+@import "./utils/mixins";
+@import "./utils/keyframes";
+@import "./base/global";
+
+/*
+  Шрифты и типография
+*/
+@import "./base/fonts";
+@import "./base/typography";
+
+/*
+  Компоненты
+*/
+@import "./components/header";
+@import "./components/hero";
+@import "./components/how-it-work.scss";
+@import "./components/third-block.scss";
+@import "./components/reviews.scss";
+@import "./components/faq.scss";
+@import "./components/facts.scss";
+@import "./components/form.scss";
+@import "./components/footer";

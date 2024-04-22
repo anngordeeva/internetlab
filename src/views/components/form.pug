@@ -1,0 +1,26 @@
+section.form#form
+  .wrapper 
+    .form__wrapper 
+      h2.form__title Отправь форму
+      form(action="#").form__form
+        .form__item.form__item-name
+          input(type="text", name="name", placeholder="Имя").form__input.form__input-name
+          label.form__label Имя
+          .form__error 
+            span Введите корректное имя
+            img(src="/assets/images/error.svg", alt="error icon")
+          .form__success 
+            img(src="/assets/images/success.svg", alt="check icon")
+        .form__item.form__item-phone
+          input(type="tel", name="tel", placeholder="Телефон").form__input.form__input-phone
+          label.form__label Телефон
+          .form__error 
+            span Введите корректный номер
+            img(src="/assets/images/error.svg", alt="error icon")
+          .form__success
+            img(src="/assets/images/success.svg", alt="check icon")
+        label.form__checkbox 
+          input(type="checkbox", name="check")
+          span.form__checkmark
+          small Согласен, отказываюсь
+        button(type="submit").form__button Отправить

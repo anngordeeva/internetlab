@@ -1,0 +1,12 @@
+.footer {
+  padding: 28px 0;
+  border-top: 2px solid $light-gray;
+  @include screen(tablet) {
+    padding: 25px 0;
+  }
+  span {
+    display: block;
+    text-align: center;
+    @include body18;
+  }
+}

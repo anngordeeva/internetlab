@@ -1,0 +1,58 @@
+.how-it-work {
+  padding: 56px 0;
+  @include screen(tablet) {
+    padding: 56px 0 71px;
+  }
+  @include screen(desktop) {
+    padding: 80px 0;
+  }
+  &__title {
+    margin-bottom: 26px;
+    text-align: center;
+    @include headline4;
+    @include screen(tablet) {
+      margin-bottom: 42px;
+      @include headline2;
+    }
+    @include screen(desktop) {
+      margin-bottom: 61px;
+    }
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    @include screen(tablet) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px 24px;
+    }
+    @include screen(laptop) {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+  }
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    @include screen(desktop) {
+      flex-direction: column;
+      img {
+        width: 72px;
+      }
+    }
+  }
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    h3 {
+      @include headline6;
+    }
+    p {
+      color: $dark-gray;
+      @include body14;
+    }
+  }
+}

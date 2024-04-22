@@ -1,0 +1,133 @@
+.faq {
+  padding: 65px 0 56px;
+  @include screen(mobile-2x) {
+    padding: 57px 0 56px;
+  }
+  @include screen(desktop) {
+    padding: 80px 0 56px;
+  }
+  &__title {
+    margin-bottom: 28px;
+    text-align: center;
+    @include headline4;
+    @include screen(mobile-2x) {
+      margin-bottom: 42px;
+    }
+    @include screen(tablet) {
+      margin-bottom: 41px;
+      @include headline2;
+    }
+    @include screen(desktop) {
+      margin-bottom: 41px;
+    }
+  }
+  &__list {
+    @include screen(laptop) {
+      max-width: 1008px;
+      margin: 0 auto;
+    }
+  }
+  &__item {
+    position: relative;
+    padding: 16px 0;
+    &:not(:first-child) {
+      border-top:  1px solid $light-gray;
+    }
+    @include screen(tablet) {
+      padding: 24px 0;
+      border-top: 1px solid $light-gray;
+    }
+    @include screen(laptop) {
+      &:hover {
+        .faq__item__header {
+          color: $primary;
+        }
+        .faq__item__button {
+          border-color: $primary;
+          &::before,
+          &::after {
+            background-color: $primary;
+          }
+        }
+      }
+    }
+    &__header {
+      transition: color $transition-default;
+      @include body18-bold;
+      h3 {
+        max-width: 244px;
+        @include screen(mobile-2x) {
+          max-width: 299px;
+        }
+        @include screen(tablet) {
+          max-width: 700px;
+        }
+        @include screen(laptop) {
+          max-width: unset;
+        }
+      }
+    }
+    &__button {
+      position: absolute;
+      right: 0;
+      top: 22px;
+      width: 24px;
+      height: 24px;
+      border: 2px solid $black;
+      border-radius: 50%;
+      transition: border-color $transition-default;
+      &::before {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 2px;
+        height: 12px;
+        background-color: $black;
+        top: 4px;
+        left: 9px;
+        border-radius: 2px;
+        transform: rotate(0);
+        transition: background-color $transition-default, transform $transition-default;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 12px;
+        height: 2px;
+        background-color: $black;
+        top: 9px;
+        left: 4px;
+        border-radius: 2px;
+        transform: rotate(0);
+        transition: background-color $transition-default, transform $transition-default;
+      }
+      @include screen(tablet) {
+        top: 24px;
+      }
+    }
+    &.active {
+      .faq__dropdown {
+        display: block;
+        animation-name: fadeIn;
+        animation-duration: .5s;
+      }
+      .faq__item__button {
+        &::before,
+        &::after {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+  &__dropdown {
+    display: none;
+    padding-top: 16px;
+    color: $dark-gray;
+    @include body16;
+    @include screen(tablet) {
+      padding-top: 24px;
+      @include body16;
+    }
+  }
+}

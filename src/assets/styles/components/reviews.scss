@@ -1,0 +1,104 @@
+.reviews {
+  padding: 28px 0 33px;
+  background-color: $extralight-gray;
+  @include screen(mobile-2x) {
+    padding: 28px 0 47px;
+  }
+  @include screen(tablet) {
+    padding: 33px 0 52px;
+  }
+  @include screen(laptop) {
+    padding: 57px 0 53px;
+  }
+  &__wrapper {
+    position: relative;
+    margin: 0 auto;
+  }
+  &__title {
+    margin-bottom: 26px;
+    text-align: center;
+    @include headline4;
+    @include screen(tablet) {
+      margin-bottom: 32px;
+      @include headline2;
+    }
+  }
+  &__swiper {
+    position: relative;
+    @include screen(laptop) {
+      max-width: 1012px;
+      margin: 0 auto;
+    }
+  }
+}
+.swiper {
+  padding-bottom: 38px;
+  @include screen(tablet) {
+    padding-bottom: 50px;
+  }
+  &-slide {
+    padding: 22px 22px 33px;
+    background-color: $white;
+    border-radius: 8px;
+    box-shadow: 0px 5px 24px 0px #0000001A;
+    @include screen(mobile-2x) {
+      padding: 22px 22px 27px;
+    }
+    @include screen(tablet) {
+      padding: 22px 22px 38px;
+      height: 316px;
+    }
+    p {
+      @include body14;
+    }
+  }
+  &-pagination {
+    height: 8px;
+    bottom: 0 !important;
+    &-bullet {
+      margin: 0 8.5px !important;
+      background: $mid-gray;
+      opacity: 1 !important;
+      &-active {
+        background: $primary !important;
+      }
+    }
+  }
+  &__button {
+    display: none;
+    @include screen(laptop) {
+      position: absolute;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      top: 53%;
+      transform: translateY(-50%);
+    }
+  }
+  &-button {
+    &-next {
+      transform: rotate(180deg);
+    }
+  }
+  &__person {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    img {
+      max-width: 44px;
+      max-height: 44px;
+    }
+  }
+  &__name {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    b {
+      @include headline6;
+    }
+    span {
+      color: $dark-gray;
+      @include body12;
+    }
+  }
+}

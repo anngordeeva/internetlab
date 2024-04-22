@@ -1,0 +1,65 @@
+.hero {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(/assets/images/hero-bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 288px;
+    height: 100vh;
+    text-align: center;
+    @include screen(tablet) {
+      max-width: 476px;
+    }
+    @include screen(desktop) {
+      max-width: 748px;
+    }
+  }
+  &__title {
+    margin-bottom: 10px;
+    color: $white;
+    @include headline4;
+    @include screen(mobile-2x) {
+      margin-bottom: 18px;
+    }
+    @include screen(tablet) {
+      margin-bottom: 17px;
+      @include headline3;
+    }
+    @include screen(desktop) {
+      margin-bottom: 18px;
+      @include headline1;
+    }
+  }
+  &__descr {
+    margin-bottom: 26px;
+    color: $white;
+    @include body16;
+    @include screen(tablet) {
+      margin-bottom: 40px;
+    }
+    @include screen(desktop) {
+      margin-bottom: 92px;
+    }
+  }
+  &__button {
+    padding: 20px 40px;
+    background-color: $light-gray;
+    border-radius: 4px;
+    @include headline5;
+    @include screen(laptop) {
+      border: 1px solid transparent;
+      transition: border $transition-default, background-color $transition-default;
+      &:hover {
+        background-color: $white;
+        border-color: $mid-gray;
+      }
+    }
+  }
+}

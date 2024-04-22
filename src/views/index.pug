@@ -1,0 +1,22 @@
+extends ./layouts/master
+
+block title
+  title testLab
+
+block basicSeo
+  meta(content="Главная страница" name="description")
+  meta(content="Главная, страница" name="keywords")
+
+block manifestBrowserconfigFiles
+  link(href="./manifest.json" rel="manifest" crossorigin)
+  meta(content="./browserconfig.xml" name="msapplication-config")
+
+block content
+  main
+    include ./components/hero
+    include ./components/how-it-work
+    include ./components/third-block
+    include ./components/reviews
+    include ./components/faq
+    include ./components/facts
+    include ./components/form
